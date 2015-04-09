@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+body {
+	padding: 20px;
+/* 	background: #C1D7FC; */
+	background: #F5F5F5;
+}
+.logo {
+	padding: 10px 0;
+}
+.logo img {
+	width: 200px;
+	margin: 0 auto;
+}
+
+.login {
+	padding: 30px;
+	border: solid 1px;
+	border-color: #cccccc;
+/* 	border-color: #4e8ef7; */
+/* 	border-color: #B8D2FC; */
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: #fff;
+}
+
+@media (min-width: 992px) {
+  .login {
+  	margin: 0 auto;
+    width: 370px;
+  }
+}

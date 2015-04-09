@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd">
+
+    <jpa:repositories base-package="com.example.jwbc.repository"
+                      entity-manager-factory-ref="entityManagerFactory" />
+
+    <bean id="jpaVendorAdapter"
+          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.example.jwbc.model" />
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+        <property name="jpaProperties">
+            <props>
+                <!-- prop key="hibernate.hbm2ddl.auto">create-drop</prop -->
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="format_sql">true</prop>
+                <prop key="use_sql_comments">true</prop>
+                <prop key="hibernate.default_schema">${data.schema}</prop>
+                <prop key="hibernate.dialect">${data.dialect}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- DriverManager Datasource -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${data.driverClassName}" />
+        <property name="url" value="${data.url}" />
+        <property name="username" value="${data.username}" />
+        <property name="password" value="${data.password}" />
+    </bean>
+
+    <!-- JBOSS JNDI Datasource -->
+    <!-- <jee:jndi-lookup jndi-name="${ds.jndi.name}" id="dataSource" /> -->
+
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+</beans>

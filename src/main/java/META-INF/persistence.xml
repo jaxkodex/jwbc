@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="certiscan">
+		<class>pe.com.certicom.certiscan.model.CmtbCliente</class>
+		<class>pe.com.certicom.certiscan.model.CmtbEmpresa</class>
+		<class>pe.com.certicom.certiscan.model.CmtbOpcion</class>
+		<class>pe.com.certicom.certiscan.model.CmtbPersona</class>
+		<class>pe.com.certicom.certiscan.model.CmtbRol</class>
+		<class>pe.com.certicom.certiscan.model.CmtbRolOpcion</class>
+		<class>pe.com.certicom.certiscan.model.CmtbRolUsuario</class>
+		<class>pe.com.certicom.certiscan.model.CmtbTipoDocumento</class>
+		<class>pe.com.certicom.certiscan.model.CmtbUsuario</class>
+		<class>pe.com.certicom.certiscan.model.DgtbDocumento</class>
+		<class>pe.com.certicom.certiscan.model.DgtbEstadoloteclienthist</class>
+		<class>pe.com.certicom.certiscan.model.DgtbEstadolotetrabhist</class>
+		<class>pe.com.certicom.certiscan.model.DgtbEstadounidrecephist</class>
+		<class>pe.com.certicom.certiscan.model.DgtbEstfisicounidrecepcion</class>
+		<class>pe.com.certicom.certiscan.model.DgtbImagen</class>
+		<class>pe.com.certicom.certiscan.model.DgtbIndice</class>
+		<class>pe.com.certicom.certiscan.model.DgtbLog</class>
+		<class>pe.com.certicom.certiscan.model.DgtbLotecliente</class>
+		<class>pe.com.certicom.certiscan.model.DgtbLotetrabajo</class>
+		<class>pe.com.certicom.certiscan.model.DgtbMediofisico</class>
+		<class>pe.com.certicom.certiscan.model.DgtbMediovirtual</class>
+		<class>pe.com.certicom.certiscan.model.DgtbPeriodoproduccion</class>
+		<class>pe.com.certicom.certiscan.model.DgtbTamaniounidadrecepcion</class>
+		<class>pe.com.certicom.certiscan.model.DgtbTipodocumental</class>
+		<class>pe.com.certicom.certiscan.model.DgtbUnidadrecepcion</class>
+		<class>pe.com.certicom.certiscan.model.DgtcValorindice</class>
+		<class>pe.com.certicom.certiscan.model.DgtcValorindicePK</class>
+		<class>pe.com.certicom.certiscan.model.DgtdIncidencia</class>
+		<class>pe.com.certicom.certiscan.model.DgtdValorindicehist</class>
+		<class>pe.com.certicom.certiscan.model.DgtmEstadolotetrabajo</class>
+		<class>pe.com.certicom.certiscan.model.DgtmEstadoltcliente</class>
+		<class>pe.com.certicom.certiscan.model.DgtmEstadounidrecepcion</class>
+		<class>pe.com.certicom.certiscan.model.DgtmTipodocumento</class>
+		<class>pe.com.certicom.certiscan.model.DgtmTipomedio</class>
+		<class>pe.com.certicom.certiscan.model.DgtmTipounidadrecepcion</class>
+	</persistence-unit>
+</persistence>

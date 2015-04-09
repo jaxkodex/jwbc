@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+  http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<security:http auto-config="true" use-expressions="true">
+        <security:intercept-url pattern="/resources/**" access="permitAll" />
+        <security:intercept-url pattern="/login.do" access="permitAll" />
+        <security:intercept-url pattern="/app" access="isAuthenticated()" />
+        <security:intercept-url pattern="/app/" access="isAuthenticated()" />
+        <security:intercept-url pattern="/app/index.do" access="isAuthenticated()" />
+        
+        <security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login login-page="/login.do" 
+			authentication-failure-url="/login.do?error"
+			username-parameter="username" password-parameter="password" 
+			authentication-success-handler-ref="authenticationSuccessHandler" />
+		<security:logout logout-url="/logout.do" logout-success-url="/login.do?logout" />
+		<security:http-basic />
+
+
+		<security:csrf disabled="true" />
+
+	</security:http>
+        
+
+	<bean id="authenticationSuccessHandler"
+        class="pe.com.certicom.certiscan.util.security.AuthenticationSuccessHandler" />
+	
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider>
+		    <security:password-encoder hash="md5" /> 
+
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username,  password, (case when es_usuario = 'A' then 1 else 0 end) enabled from usuario  where trim(username)=?"
+				authorities-by-username-query="select rol_usuario.username, opcion.co_opcion  from rol_usuario rol_usuario left join rol_opcion rol_opcion on rol_usuario.id_rol = rol_opcion.id_rol left join opcion opcion on opcion.id_opcion = rol_opcion.id_opcion where trim(rol_usuario.username)=? and es_opcion = 'A'" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>
