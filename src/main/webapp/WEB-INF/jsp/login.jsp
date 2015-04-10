@@ -18,7 +18,7 @@
 				<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logo.png" />
 			</div>
 			<div class="login">
-				<h3 class="text-center">Sistema de Digitalización</h3>
+				<h3 class="text-center">jwbc</h3>
 				<c:if test="${not empty error}">
 				<div class="alert alert-warning">Verifique su usuario y contraseña por favor.</div>
 				</c:if>

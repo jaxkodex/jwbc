@@ -26,7 +26,7 @@
         
 
 	<bean id="authenticationSuccessHandler"
-        class="pe.com.certicom.certiscan.util.security.AuthenticationSuccessHandler" />
+        class="com.example.jwbc.util.security.AuthenticationSuccessHandler" />
 	
 	<security:authentication-manager alias="authenticationManager">
 		<security:authentication-provider>
