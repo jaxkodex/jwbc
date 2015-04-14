@@ -19,7 +19,7 @@
 	<div id="loading-placeholder" class="text-center" style="padding-top: 70px; position: relative;">
 		<h4>Cargando...</h4>
 		<img alt="Cargando..." src="${pageContext.request.contextPath}/resources/img/loading.gif">
-		<p><small><i>CERTISCAN &copy; <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %> example.com</i></small></p>
+		<p><small><i>jwbc &copy; <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %> example.com</i></small></p>
 	</div>
 	<div class="header">
 		<div class="row">
